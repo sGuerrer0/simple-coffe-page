@@ -1,0 +1,60 @@
+<div>
+  <div class="">
+    <img width="100%" height="200" src="../assets/cafe.jpg" alt="coffe-store">
+  </div>
+  <div class="container coffe-container">
+    <div class="header">
+      <div>
+        <h1 class="title-text">Our Collection</h1>
+        <img class="vector-container" src="../assets/vector.svg">
+      </div>
+      <div>
+        <span class="p-type color-g">Introducing our Coffee Collection, a selection of unique coffees from different
+          roast
+          types and
+          origins, expertly roasted in small batches and shipped fresh weekly.</span>
+      </div>
+    </div>
+    <div class="centered-buttons">
+      <button (click)="all_products()" [ngStyle]="{'background-color': all_products_color}"
+        class="btn btn-link button-alternate-products">All Products</button>
+      <button (click)="available_coffe()" [ngStyle]="{'background-color': available_color}"
+        class="btn btn-link button-alternate-products">Available Now</button>
+    </div>
+    <!-- products container -->
+    @for (product of products; track product.id) {
+    <div class="product-container">
+      {{$index}}
+      <div class="img-container">
+        <img src="{{ product.image }}" class="img-st" alt="{{ product.name }}">
+      </div>
+      <div class="product-info">
+        <div class="first-info">
+          <span class="color-w sp-font">{{ product.name }}</span>
+          <span class="btn btn-link btn-st sp-font">{{ product.price }}</span>
+        </div>
+        <div class="second-info">
+          <div>
+            @if(product.rating != null){
+            <img src="../assets/Star_fill.svg" class="img-sm" alt="start-fill">
+            <span class="color-w sp-font mx-1">{{ product.rating }}</span>
+            <span class="color-g sp-font">({{ product.votes }} votes)</span>
+            }@else{
+            <img src="../assets/Star.svg" class="img-sm" alt="start-fill">
+            <span class="color-g sp-font mx-1">No ratings</span>
+            }
+          </div>
+          <div>
+            @if(!product.available){
+            <span class="color-r sp-font mx-1">Sold out</span>
+            }
+          </div>
+
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<router-outlet />
