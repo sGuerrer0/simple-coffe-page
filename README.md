@@ -1,6 +1,5 @@
 # SimpleCoffePage
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+Reto Frontend de devchallenge.io, desarrollado con angular 17, typecript y bootstrap5.
 
 ## Development server
 
